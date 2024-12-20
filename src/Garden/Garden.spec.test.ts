@@ -38,4 +38,14 @@ describe("Garden", () => {
 
     expect(garden.getLightsOn()).equals(3)
   })
+
+  it("should toggle a range of lights", () => {
+    const garden = new Garden()
+
+    garden.turnOn(new Point(0, 0), new Point(1, 1))
+    garden.turnOff(new Point(0, 0), new Point(0, 0))
+    garden.toggle(new Point(0, 0), new Point(1, 1))
+
+    expect(garden.getLightsOn()).equals(1)
+  })
 })
