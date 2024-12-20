@@ -12,4 +12,12 @@ describe("Garden", () => {
     const garden = new Garden()
     expect(() => garden.turnOn([1001, 1001], [1001, 1001])).toThrowError("Invalid bulb number")
   })
+
+  it("should turn on one light", () => {
+    const garden = new Garden()
+
+    garden.turnOn([0, 1], [0, 1])
+
+    expect(garden.getLightsOn()).equals(1)
+  })
 })
