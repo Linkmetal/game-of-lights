@@ -1,21 +1,31 @@
+import { Point } from "../Point/Point.js"
+
+const SIZE_OF_GARDEN = 1000
 export class Garden {
+  turnOff(arg0: Point, arg1: Point) {
+    throw new Error("Method not implemented.")
+  }
   garden: boolean[][]
 
   constructor() {
-    this.garden = Array(1000)
+    this.garden = Array(SIZE_OF_GARDEN)
       .fill(false)
-      .map(() => Array(1000).fill(false))
+      .map(() => Array(SIZE_OF_GARDEN).fill(false))
   }
 
-  turnOn(initialCoords: number[], endCoords: number[]): any {
-    if (initialCoords[0] > 1000 || initialCoords[1] > 1000 || endCoords[0] > 1000 || endCoords[1] > 1000) {
+  private isOnBounds(point: Point): boolean {
+    return point.getX() < SIZE_OF_GARDEN || point.getY() < SIZE_OF_GARDEN
+  }
+
+  turnOn(initialCoords: Point, endCoords: Point): any {
+    if (!this.isOnBounds(initialCoords) || !this.isOnBounds(endCoords)) {
       throw new Error("Invalid bulb number")
     }
 
     this.garden = this.garden.map((row, x) => {
-      if (x >= initialCoords[0] && x <= endCoords[0]) {
+      if (x >= initialCoords.getX() && x <= endCoords.getX()) {
         return row.map((light, y) => {
-          if (y >= initialCoords[1] && y <= endCoords[1]) {
+          if (y >= initialCoords.getY() && y <= endCoords.getY()) {
             return true
           }
           return light
