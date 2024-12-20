@@ -20,4 +20,12 @@ describe("Garden", () => {
 
     expect(garden.getLightsOn()).equals(1)
   })
+
+  it("should turn on a range of lights", () => {
+    const garden = new Garden()
+
+    garden.turnOn([0, 0], [1, 1])
+
+    expect(garden.getLightsOn()).equals(4)
+  })
 })
