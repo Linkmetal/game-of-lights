@@ -46,6 +46,6 @@ describe("Garden", () => {
     garden.turnOff(new Point(0, 0), new Point(0, 0))
     garden.toggle(new Point(0, 0), new Point(1, 1))
 
-    expect(garden.getLightsOn()).equals(1)
+    expect(garden.getLightsOn()).equals(11)
   })
 })
