@@ -8,4 +8,8 @@ describe("Garden", () => {
 
     expect(garden.getLightsOn()).toBe(0)
   })
+  it("throws exception if trying to light bulb out of defined range", () => {
+    const garden = new Garden()
+    expect(() => garden.turnOn([1001, 1001], [1001, 1001])).toThrowError("Invalid bulb number")
+  })
 })
