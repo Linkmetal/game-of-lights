@@ -48,4 +48,29 @@ describe("Garden", () => {
 
     expect(garden.getLightsOn()).equals(11)
   })
+
+  it("should return 81516 given the instructions on the readme", () => {
+    const garden = new Garden()
+
+    garden.turnOn(new Point(887, 9), new Point(959, 629))
+    garden.turnOn(new Point(454, 398), new Point(844, 448))
+    garden.turnOff(new Point(539, 243), new Point(559, 965))
+    garden.turnOff(new Point(370, 819), new Point(676, 868))
+    garden.turnOff(new Point(145, 40), new Point(370, 997))
+    garden.turnOff(new Point(301, 3), new Point(808, 453))
+    garden.turnOn(new Point(351, 678), new Point(951, 908))
+    garden.toggle(new Point(720, 196), new Point(897, 994))
+    garden.toggle(new Point(831, 394), new Point(904, 860))
+
+    expect(garden.getLightsOn()).equals(81516)
+  })
+
+  it("should return 2000001 given the instructions on the readme", () => {
+    const garden = new Garden()
+
+    garden.turnOn(new Point(0, 0), new Point(0, 0))
+    garden.toggle(new Point(0, 0), new Point(999, 999))
+
+    expect(garden.getLightsOn()).equals(2000001)
+  })
 })
